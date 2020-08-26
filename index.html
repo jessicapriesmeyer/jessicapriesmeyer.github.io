@@ -2,11 +2,48 @@
 <html>
 <head>
 	<title>Jessica Priesmeyer - Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<div id="nav">
+		<ul style="color:#fff">
+			<li>Education</li>
+			<li>Illustration</li>
+			<li>Projects</li>
+		</ul>
+	</div>
+	<section>
+		<img src="bg-para.png" id ="bg">
+		<img src="bg-para1.png" id ="bgp1" style="margin-top:-80px;">
+		<img src="bg-para2.png" id ="bgp2">
+		<img src="bg-para3.png" id ="bgp3" style="margin-top: 100px;">
+		<h2 id="text" class ="portfolioHeadline">Portfolio</h2>
+	</section>
+	<script type="text/javascript">
+		var bg = document.getElementById("bg");
+		var bgp1 = document.getElementById("bgp1");
+		var bgp2 = document.getElementById("bgp2");
+		var bgp3 = document.getElementById("bgp3");
+        const checkpoint = 300;
+		
+		window.addEventListener('scroll', function(){
+			var value = window.scrollY;
+			const currentScroll = window.pageYOffset;
+			
+			bg.style.top = value * 0.75 + 'px';
+            bgp1.style.top = value * 0.5 + 'px';
+            bgp2.style.top = value * 0.15 + 'px';
+            bgp3.style.top = value * -0.15 + 'px';
+            text.style.top = value * 0.6 + 'px';
 
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+            if (currentScroll <= checkpoint) {
+                opacity = 1 - currentScroll / checkpoint;
+			} else {
+                opacity = 0;
+			}
+			document.querySelector(".portfolioHeadline").style.opacity = opacity;
+		});
+	</script>
 
 </body>
 </html>
